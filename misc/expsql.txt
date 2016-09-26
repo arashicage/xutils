@@ -1,0 +1,334 @@
+----------------------------------
+Timestamp: 14:21:01.807
+Successful logon attempt (session tag: 0x5A9BDD0) 
+username: 'dzdz'; database: 'DZDZ_IMPROVED_000'
+----------------------------------
+Timestamp: 14:21:01.809
+select null from dual
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:01.815
+select length(chr(2000000000)) l4, length(chr(2000000)) l3,  length(chr(20000)) l2, 'c' c1 from dual
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:01.820
+select lengthb(nchr(20)), nchr(20) from dual
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:01.826
+begin sys.dbms_application_info.set_module('PL/SQL Developer', :action); end;
+:ACTION = 'Export Tables'
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:01.862
+alter session set plsql_optimize_level = 2
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:01.876
+alter session set plsql_code_type = interpreted
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:01.891
+alter session set plscope_settings = 'identifiers:none'
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:01.896
+select sid, serial# from v$session where audsid = userenv('SESSIONID')
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:02.024
+select value from nls_session_parameters where parameter = 'NLS_DATE_FORMAT'
+Execution time: 125 ms
+----------------------------------
+Timestamp: 14:21:02.047
+select value from nls_session_parameters where parameter = 'NLS_NUMERIC_CHARACTERS'
+Execution time: 16 ms
+----------------------------------
+Timestamp: 14:21:02.064
+alter session set nls_date_format='dd-mm-yyyy hh24:mi:ss'
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:02.081
+alter session set nls_numeric_characters='.,'
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:02.102
+select 'x' from dual
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:02.229
+select tablespace_name, to_char(pct_free) pct_free, to_char(pct_used) pct_used,
+       to_char(ini_trans) ini_trans, to_char(max_trans) max_trans,
+       to_char(initial_extent) initial_extent, to_char(next_extent) next_extent,
+       to_char(pct_increase) pct_increase,
+       to_char(min_extents) min_extents, to_char(max_extents) max_extents,
+       cluster_name
+from sys.all_tables
+where owner = :object_owner
+and table_name = :object_name
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_GYXX'
+Execution time: 47 ms
+----------------------------------
+Timestamp: 14:21:02.323
+select *
+from sys.all_tables
+where owner = :object_owner
+and table_name = :object_name
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_GYXX'
+Execution time: 47 ms
+----------------------------------
+Timestamp: 14:21:02.393
+select comments from sys.all_tab_comments
+where owner = :object_owner
+and table_name = :object_name
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_GYXX'
+Execution time: 16 ms
+----------------------------------
+Timestamp: 14:21:02.795
+select col.*, com.Comments
+from sys.all_tab_cols col,
+     sys.all_col_comments com
+where col.owner = 'DZDZ'
+and col.table_name = 'CKTS_CX_GYXX'
+and com.Owner (+) = 'DZDZ'
+and com.Table_Name (+) = 'CKTS_CX_GYXX'
+and com.Column_Name (+) = col.Column_Name
+order by col.column_id
+Execution time: 328 ms
+----------------------------------
+Timestamp: 14:21:03.003
+select * from sys.all_constraints
+where table_name = :object_name
+and owner = :object_owner
+and constraint_type in ('P', 'U', 'R', 'C')
+order by decode(constraint_type, 'P', 0, 'U', 1, 'R', 2, 3), constraint_name
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_GYXX'
+Execution time: 172 ms
+----------------------------------
+Timestamp: 14:21:03.243
+select column_name from sys.all_cons_columns
+where owner = :owner
+and table_name = :table_name
+and constraint_name = :constraint_name
+order by position
+:OWNER = 'DZDZ'
+:TABLE_NAME = 'CKTS_CX_GYXX'
+:CONSTRAINT_NAME = 'PK_CKTS_CX_GYXX'
+Execution time: 78 ms
+----------------------------------
+Timestamp: 14:21:03.393
+select * from sys.all_indexes
+where table_name = :object_name
+and table_owner = :object_owner
+order by index_name
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_GYXX'
+Execution time: 78 ms
+----------------------------------
+Timestamp: 14:21:03.561
+select * from sys.all_ind_columns
+where index_owner = :index_owner
+and index_name = :index_name
+order by column_position
+:INDEX_OWNER = 'DZDZ'
+:INDEX_NAME = 'PK_CKTS_CX_GYXX'
+Execution time: 79 ms
+----------------------------------
+Timestamp: 14:21:03.712
+select * from sys.all_tab_privs
+where table_schema = :object_owner
+and table_name = :object_name
+order by grantee
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_GYXX'
+Execution time: 62 ms
+----------------------------------
+Timestamp: 14:21:03.940
+select * from sys.all_tab_partitions
+where table_name = :object_name
+and table_owner = :object_owner
+order by partition_position
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_GYXX'
+Execution time: 157 ms
+----------------------------------
+Timestamp: 14:21:04.243
+select * from sys.all_queue_tables
+where queue_table = :object_name
+and owner = :object_owner
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_GYXX'
+Execution time: 171 ms
+----------------------------------
+Timestamp: 14:21:04.417
+select * from sys.all_external_tables
+where table_name = :object_name
+and owner = :object_owner
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_GYXX'
+Execution time: 62 ms
+----------------------------------
+Timestamp: 14:21:04.653
+select * from sys.all_external_locations
+where table_name = :object_name
+and owner = :object_owner
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_GYXX'
+Execution time: 32 ms
+----------------------------------
+
+
+
+Timestamp: 14:21:04.785
+select tablespace_name, to_char(pct_free) pct_free, to_char(pct_used) pct_used,
+       to_char(ini_trans) ini_trans, to_char(max_trans) max_trans,
+       to_char(initial_extent) initial_extent, to_char(next_extent) next_extent,
+       to_char(pct_increase) pct_increase,
+       to_char(min_extents) min_extents, to_char(max_extents) max_extents,
+       cluster_name
+from sys.all_tables
+where owner = :object_owner
+and table_name = :object_name
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_XXXX'
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:04.912
+select *
+from sys.all_tables
+where owner = :object_owner
+and table_name = :object_name
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_XXXX'
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:04.980
+select comments from sys.all_tab_comments
+where owner = :object_owner
+and table_name = :object_name
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_XXXX'
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:05.391
+select col.*, com.Comments
+from sys.all_tab_cols col,
+     sys.all_col_comments com
+where col.owner = 'DZDZ'
+and col.table_name = 'CKTS_CX_XXXX'
+and com.Owner (+) = 'DZDZ'
+and com.Table_Name (+) = 'CKTS_CX_XXXX'
+and com.Column_Name (+) = col.Column_Name
+order by col.column_id
+Execution time: 344 ms
+----------------------------------
+Timestamp: 14:21:05.535
+select * from sys.all_constraints
+where table_name = :object_name
+and owner = :object_owner
+and constraint_type in ('P', 'U', 'R', 'C')
+order by decode(constraint_type, 'P', 0, 'U', 1, 'R', 2, 3), constraint_name
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_XXXX'
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:05.633
+select column_name from sys.all_cons_columns
+where owner = :owner
+and table_name = :table_name
+and constraint_name = :constraint_name
+order by position
+:OWNER = 'DZDZ'
+:TABLE_NAME = 'CKTS_CX_XXXX'
+:CONSTRAINT_NAME = 'PK_CKTS_CX_XXXX'
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:05.684
+select * from sys.all_indexes
+where table_name = :object_name
+and table_owner = :object_owner
+order by index_name
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_XXXX'
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:05.730
+select * from sys.all_ind_columns
+where index_owner = :index_owner
+and index_name = :index_name
+order by column_position
+:INDEX_OWNER = 'DZDZ'
+:INDEX_NAME = 'PK_CKTS_CX_XXXX'
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:05.775
+select * from sys.all_tab_privs
+where table_schema = :object_owner
+and table_name = :object_name
+order by grantee
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_XXXX'
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:05.817
+select * from sys.all_tab_partitions
+where table_name = :object_name
+and table_owner = :object_owner
+order by partition_position
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_XXXX'
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:05.864
+select * from sys.all_queue_tables
+where queue_table = :object_name
+and owner = :object_owner
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_XXXX'
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:05.901
+select * from sys.all_external_tables
+where table_name = :object_name
+and owner = :object_owner
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_XXXX'
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:05.943
+select * from sys.all_external_locations
+where table_name = :object_name
+and owner = :object_owner
+:OBJECT_OWNER = 'DZDZ'
+:OBJECT_NAME = 'CKTS_CX_XXXX'
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:06.149
+select "CX_BH", "CX_BM", "CX_ZWM", "MXLJ", "WY_BZ", "CX_SM", "CXDC_BZ" from CKTS_CX_GYXX
+Execution time: 16 ms
+----------------------------------
+Timestamp: 14:21:06.499
+select "CX_BH", "ZD_MC", "ZD_ZWMC", "ZDSJ_LX", "DM_MC", "JSDML", "TJ_BZ", "MR_TJ", "BX_TJ", to_char("TJ_XH"), to_char("CX_XH"), to_char("SRZD_CD"), "FKTJ_BZ", "TJMRZ", "GLTJ_ZD", "ZDJSHQL", "JG_BZ", "MR_JG", "BX_JG", to_char("JG_XH"), "MXLJ", "GLJG_ZD", "ZDXSKD", "DQ_FS", "YCZD_BZ", "PX_BZ", "MR_PX", "BX_PX", "PX_FS", to_char("PX_XH"), "YX_BZ" from CKTS_CX_XXXX
+Execution time: 16 ms
+----------------------------------
+Timestamp: 14:21:14.565
+begin :id := sys.dbms_transaction.local_transaction_id; end;
+:ID = <NULL>
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:14.598
+alter session set nls_date_format='DD-MON-RR'
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:21:14.630
+alter session set nls_numeric_characters='.,'
+Execution time: 0 ms
+----------------------------------
+Timestamp: 14:23:58.480
+begin :id := sys.dbms_transaction.local_transaction_id; end;
+:ID = <NULL>
+Execution time: 0 ms

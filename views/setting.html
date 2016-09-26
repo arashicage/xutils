@@ -1,0 +1,69 @@
+{{template "header"}}
+  {{template "navbar"}}
+  
+    <script>
+      document.title = {{.title}};
+    </script>
+	
+	<script type="text/javascript">
+
+	</script>
+
+    <div class="container">
+      <form class="form-horizontal" role="form" method="POST" action="/config">
+		
+		<div class="form-group">
+          <label id="warn" class="col-sm-2 control-label" style="display: none;"> &nbsp;</label>	
+		  <div class="col-sm-10">
+		    <div id="alert" class="alert alert-danger" role="alert" style="display: none; width: 100%;"></div>  <!---->
+		  </div>
+        </div>
+		
+        <div class="form-group">
+          <label class="col-sm-2 control-label">默认字符集</label>
+          <div class="col-sm-10">
+			{{if .nls_checked}}
+				<label class="radio-inline">
+	              <input type="radio" name="nls" id="nls1" value="SIMPLIFIED CHINESE_CHINA.ZHS16GBK" checked="true"> SIMPLIFIED CHINESE_CHINA.ZHS16GBK 
+	            </label>
+	            <label class="radio-inline">
+	              <input type="radio" name="nls" id="nls2" value="AMERICA_AMERICAN.US7ASCII"> AMERICA_AMERICAN.US7ASCII
+	            </label>
+			{{else}}
+				<label class="radio-inline">
+	              <input type="radio" name="nls" id="nls1" value="SIMPLIFIED CHINESE_CHINA.ZHS16GBK"> SIMPLIFIED CHINESE_CHINA.ZHS16GBK 
+	            </label>
+	            <label class="radio-inline">
+	              <input type="radio" name="nls" id="nls2" value="AMERICA_AMERICAN.US7ASCII" checked="true"> AMERICA_AMERICAN.US7ASCII
+	            </label>
+			{{end}}
+		
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">TNS_ADMIN</label>
+          <div class="col-sm-10">
+            <input id="tns" name="tns" type="text" class="form-control" placeholder={{.tns_admin}} value={{.tns_admin}}>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">导出目录</label>
+          <div class="col-sm-10">
+            <input id="expdir" name="expdir" class="form-control" rows="3" placeholder={{.exp_dir}}  value={{.exp_dir}} ></input>
+          </div>
+        </div>
+		
+		<div class="form-group">
+          <label class="col-sm-2 control-label"> &nbsp;</label>
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary btn-sm">保存设置</button>
+          </div>
+        </div>
+	
+      </form>
+    </div>
+
+{{template "footer"}}

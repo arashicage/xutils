@@ -1,0 +1,202 @@
+{{template "header"}}
+  {{template "navbar"}}
+
+	<script type="text/javascript">
+		$('#myTab a').click(function (e) {
+		 e.preventDefault()
+		 $(this).tab('show')
+		})
+	</script>
+
+	<script type="text/javascript">
+
+		function removeTable(){
+		   $("#table1").remove()
+		}
+
+		function xx(){
+			var json1 = [
+			{ id: 1, name: "张1" },
+			{ id: 2, name: "张2" },
+			{ id: 3, name: "张3" }
+			];
+
+			var json=[{"RRYID":"039","公共部分":"22.0440","设备管理":"0","班组管理":"0","运行管理":"-0.20","安全管理":"-0.10"},{"RRYID":"586","公共部分":"33.2670","设备管理":"0","班组管理":"0","运行管理":"-1.50","安全管理":"-0.20"},{"RRYID":"429","公共部分":"10.7290","设备管理":"0","班组管理":"0","运行管理":"-0.20","安全管理":"0"},{"RRYID":"372","公共部分":"54.4370","设备管理":"0","班组管理":"0","运行管理":"0","安全管理":"0"},{"RRYID":"061","公共部分":"29.7760","设备管理":"0","班组管理":"0","运行管理":"-0.20","安全管理":"-0.20"},{"RRYID":"008","公共部分":"19.1960","设备管理":"0","班组管理":"0","运行管理":"0","安全管理":"-0.50"},{"RRYID":"0363","公共部分":"27.6040","设备管理":"0","班组管理":"0","运行管理":"-1","安全管理":"0"},{"RRYID":"0521","公共部分":"38.0160","设备管理":"0","班组管理":"0","运行管理":"0","安全管理":"0"},{"RRYID":"0163","公共部分":"27.7390","设备管理":"0","班组管理":"0","运行管理":"0","安全管理":"-0.60"}];
+
+			$("#table1").remove()
+
+			$(function () {
+				$("<table id='table1' class='table table-bordered'></table>").appendTo("#x2");
+				//表头
+				$("<tr id='head' class='warning'>").appendTo("#table1");
+				for(var k in json[0]){
+					console.log(k)
+					$("<td>" + k + "</td>").appendTo("#head");
+				}
+				$("</tr>").appendTo("#table1");
+
+				for (var i = 0; i < json.length; i++) {
+
+					var row=""  //先清空
+					row ="<tr>"
+					for(var j in json[i]){
+						console.log(k)
+						row = row + "<td>" + json[i][j] + "</td>"
+					}
+					row = row + "</tr>"
+					$(row).appendTo("#table1");
+				}
+			})
+
+		}
+
+		function appendTable(xx2){
+			var json1 = [
+				{ id: 1, name: "张1" },
+				{ id: 2, name: "张2" },
+				{ id: 3, name: "张3" }
+			];
+
+			//将字符串转成josn 对象
+			var json = JSON.parse(xx2)
+
+			$("#table1").remove()
+
+			$(function () {
+				$("<table id='table1' class='table table-bordered'></table>").appendTo("#x2");
+				//表头
+				$("<tr id='head' class='warning'>").appendTo("#table1");
+				for(var k in json[0]){
+					console.log(k)
+					$("<td>" + k + "</td>").appendTo("#head");
+				}
+				$("</tr>").appendTo("#table1");
+
+				for (var i = 0; i < json.length; i++) {
+
+					var row=""  //先清空
+					row ="<tr>"
+					for(var j in json[i]){
+						console.log(k)
+						row = row + "<td>" + json[i][j] + "</td>"
+					}
+					row = row + "</tr>"
+					$(row).appendTo("#table1");
+				}
+			})
+
+		}
+
+	</script>
+
+	<script type="text/javascript">
+		var testArray=[{"RRYID":"039","公共部分":"22.0440","设备管理":"0","班组管理":"0","运行管理":"-0.20","安全管理":"-0.10"},{"RRYID":"586","公共部分":"33.2670","设备管理":"0","班组管理":"0","运行管理":"-1.50","安全管理":"-0.20"},{"RRYID":"429","公共部分":"10.7290","设备管理":"0","班组管理":"0","运行管理":"-0.20","安全管理":"0"},{"RRYID":"372","公共部分":"54.4370","设备管理":"0","班组管理":"0","运行管理":"0","安全管理":"0"},{"RRYID":"061","公共部分":"29.7760","设备管理":"0","班组管理":"0","运行管理":"-0.20","安全管理":"-0.20"},{"RRYID":"008","公共部分":"19.1960","设备管理":"0","班组管理":"0","运行管理":"0","安全管理":"-0.50"},{"RRYID":"0363","公共部分":"27.6040","设备管理":"0","班组管理":"0","运行管理":"-1","安全管理":"0"},{"RRYID":"0521","公共部分":"38.0160","设备管理":"0","班组管理":"0","运行管理":"0","安全管理":"0"},{"RRYID":"0163","公共部分":"27.7390","设备管理":"0","班组管理":"0","运行管理":"0","安全管理":"-0.60"}];
+			var headArray=[];
+
+		function parseHead(oneRow)
+		{
+			headArray=[];
+			for(var i in oneRow)
+			{
+				headArray[headArray.length] = i;
+			}
+			console.log(headArray.length)
+		}
+
+		function removeTable2()
+		{
+			var documentx = document.getElementById('x')
+			documentx.innerHTML="";
+		}
+
+
+		function appendTable2()
+		{
+			console.log(testArray)
+
+			parseHead(testArray[0]);
+			var documentx = document.getElementById('x')
+			documentx.innerHTML="";
+
+			var table= document.createElement("table");
+			table.className="table table-condensed";
+//                table.setAttribute("class","");
+
+			var thead = document.createElement("tr");
+
+			for(var count =0;count<headArray.length;count++)
+			{
+				var td = document.createElement("td");
+				td.innerHTML= headArray[count];
+				thead.appendChild(td);
+			}
+			table.appendChild(thead);
+			for(var tableRowNo =0; tableRowNo<testArray.length;tableRowNo++)
+			{
+				var tr = document.createElement("tr");
+				for(var headCount = 0; headCount<headArray.length; headCount++)
+				{
+					var cell = document.createElement("td");
+					cell.innerHTML = testArray[tableRowNo][headArray[headCount]];
+					tr.appendChild(cell);
+				}
+				table.appendChild(tr);
+			}
+			documentx.appendChild(table);
+
+
+		}
+
+	</script>
+
+	<div id="main" class="container clear-top">
+
+		<div>
+			<label class="checkbox-inline">
+			  <input type="checkbox" name="opt" onclick="appendTable2();"> append tables
+			</label>
+			<label class="checkbox-inline">
+			  <input type="checkbox" name="opt"  onclick="removeTable2();"> remove tables
+			</label>
+			<label class="checkbox-inline">
+			  <input type="checkbox" name="opt"  onclick="appendTable({{.xx2}});"> jquery add table
+			</label>
+			<label class="checkbox-inline">
+			  <input type="checkbox" name="opt"  onclick="removeTable();"> jquery remove tables
+			</label>
+			<br>
+			<br>
+		</div>
+
+		<div>
+
+			<ul id="myTab" class="nav nav-tabs">
+			  <li class="active"><a href="#home" data-toggle="tab">检查项01</a></li>
+			  <li><a href="#profile" data-toggle="tab">检查项02</a></li>
+			</ul>
+
+		</div>
+
+		<div id="myTabContent" class="tab-content">
+			<div class="tab-pane fade in active" id="home">
+				<br>
+				<p>检查税控系统是否未按照接口推送数据</p>
+			</div>
+			<div class="tab-pane fade" id="profile">
+			<br>
+			<p>检查是否有任务同时运行</p>
+			</div>
+			<br>
+		</div>
+
+
+		<div id="x">
+
+		</div>
+
+		<div id="x2">
+		</div>
+
+	</div>
+
+{{template "footer"}}

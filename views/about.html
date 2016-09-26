@@ -1,0 +1,120 @@
+{{template "header"}}
+  {{template "navbar"}}
+
+		<script type="text/javascript">
+			$('#myTab a').click(function (e) {
+			 e.preventDefault()
+			 $(this).tab('show')
+			})
+		</script>
+		
+	    <div id="main" class="container clear-top">
+	      <!--<div>
+	        <p>
+	          <H4>Welcome To X SYSTEM.</H4>
+	        </p>
+	        <p>
+	          <H4>This is about page.</H4>
+	        </p>
+	      </div>-->
+		
+		<div>
+			<!--<ul id="myTab" class="nav nav-tabs" role="tablist">
+			  <li role="presentation" class="active"><a href="#home">Home</a></li>
+			  <li role="presentation"><a href="#profile">Profile</a></li>
+			  <li role="presentation"><a href="#message">Messages</a></li>
+			</ul>-->
+			
+			<ul id="myTab" class="nav nav-tabs">
+			  <li style="background-color: #fcf8e3;border-color: #red #ddd transparent;"><a href="#home" data-toggle="tab">检查项01</a></li>
+			  <li><a href="#profile" data-toggle="tab">检查项02</a></li>
+			<li><a href="#profile" data-toggle="tab">111000000</a></li>
+			<li><a href="#profile" data-toggle="tab">112000000</a></li>
+			<li><a href="#profile" data-toggle="tab" style="border-color: #ddd #ddd transparent;">113000000</a></li>
+			<li><a href="#profile" data-toggle="tab" style="border-color: #ddd #ddd transparent;">114000000</a></li>
+			<li><a href="#profile" data-toggle="tab">115000000</a></li>
+			<li><a href="#profile" data-toggle="tab">121000000</a></li>
+			<li><a href="#profile" data-toggle="tab">121020000</a></li>
+			<li><a href="#profile" data-toggle="tab">123000000</a></li>
+			<li><a href="#profile" data-toggle="tab">检查项02</a></li>
+			<li><a href="#profile" data-toggle="tab">检查项02</a></li>
+			<li><a href="#profile" data-toggle="tab">检查项02</a></li>
+			<li><a href="#profile" data-toggle="tab">检查项02</a></li>
+			<li><a href="#profile" data-toggle="tab">检查项02</a></li>
+			<li><a href="#profile" data-toggle="tab">检查项02</a></li>
+			<li><a href="#profile" data-toggle="tab">检查项02</a></li>
+			<li><a href="#profile" data-toggle="tab">检查项02</a></li>
+			<li><a href="#profile" data-toggle="tab">检查项02</a></li>
+				{{$x :=10}}
+				<li><a href="#profile" data-toggle="tab">{{$x}}</a></li>
+			</ul>
+	
+		</div>
+		
+		
+		
+		<div id="myTabContent" class="tab-content">
+		 <div class="tab-pane fade in active" id="home">
+			<br>
+		  	<p>检查税控系统是否未按照接口推送数据</p>
+		 </div>
+		 <div class="tab-pane fade" id="profile">
+		  	<br>
+		  	<p>检查是否有任务同时运行</p>
+		 </div>
+		<br>
+		</div>
+		
+		<div>
+			<table class="table table-bordered">
+				<tr class="warning">
+					<td>税务机关</td>
+				    <td>监控结果</td>
+				</tr>
+				<tr>
+					<td>111000000</td>
+				    <td>
+						<table class="table table-striped">
+							<tr >
+								<td>Name</td>
+							    <td>Desc</td>
+							    <td>SQL</td>
+							</tr>
+							
+							{{range .trace}}
+							<tr>
+								<td>{{.Name}}</td>
+							    <td>{{.Desc}}</td>
+								
+							    <td>-</td>
+							</tr>
+							{{end}}
+							
+						</table>
+					</td>
+				</tr>
+			</table>
+			
+			<table class="table table-bordered">
+							<tr class="warning">
+								<td>Name</td>
+							    <td>Desc</td>
+							    <td>SQL</td>
+							</tr>
+							
+							{{range .trace}}
+							<tr>
+								<td>{{.Name}}</td>
+							    <td>{{.Desc}}</td>
+								
+							    <td>{{.SQL}}</td>
+							</tr>
+							{{end}}
+							
+						</table>
+			        	
+        </div>
+		
+	    </div>
+
+{{template "footer"}}

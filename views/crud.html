@@ -1,0 +1,49 @@
+{{template "header"}}
+{{template "header"}}
+  {{template "navbar"}}
+
+      <div id="main" class="container clear-top">
+		<div class="btn-group">
+		  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+		    Action <span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu" role="menu">
+		    <li><a href="#">Action</a></li>
+		    <li><a href="#">Another action</a></li>
+		    <li><a href="#">Something else here</a></li>
+		    <li class="divider"></li>
+		    <li><a href="#">Separated link</a></li>
+		  </ul>
+		</div>
+		
+		<div>
+			<br>
+		</div>
+		
+        <div>
+        	<table class="table table-bordered">
+				<tr class="warning">
+					<td>#</td>
+				    <td>购方识别号</td>
+				    <td>购方名称</td>
+					<td>购方地址电话</td>
+				    <td>购方银行账号</td>
+				</tr>
+				
+				{{range .e}}
+				<tr>
+					<td>{{.Id}}</td>
+				    <td>{{.Gfsbh}}</td>
+				    <td>{{.Gfmc}}</td>
+					<td>{{.Gfdzdh}}</td>
+				    <td>{{.Gfyhzh}}</td>
+				</tr>
+				{{end}}
+				
+			</table>
+        </div>
+		
+		
+      </div>  
+
+{{template "footer"}}

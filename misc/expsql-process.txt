@@ -1,0 +1,50 @@
+
+
+
+
+select sid, serial# from v$session where audsid = userenv('SESSIONID')
+
+alter session set nls_date_format='yyyy-mm-dd hh24:mi:ss'
+
+alter session set nls_numeric_characters='.,'
+
+select user from dual
+
+select comments from sys.all_tab_comments
+where owner = 'DZDZ'
+and table_name = 'CKTS_CX_GYXX'
+
+select col.*, com.Comments
+from sys.all_tab_cols col,
+     sys.all_col_comments com
+where col.owner = 'DZDZ'
+and col.table_name = 'CKTS_CX_GYXX'
+and com.Owner (+) = 'DZDZ'
+and com.Table_Name (+) = 'CKTS_CX_GYXX'
+and com.Column_Name (+) = col.Column_Name
+order by col.column_id
+
+select * from sys.all_constraints
+where table_name = 'DZDZ'
+and owner = 'CKTS_CX_GYXX'
+and constraint_type in ('P', 'U', 'R', 'C')
+order by decode(constraint_type, 'P', 0, 'U', 1, 'R', 2, 3), constraint_name
+
+select column_name from sys.all_cons_columns
+where owner = 'DZDZ'
+and table_name = 'CKTS_CX_GYXX'
+and constraint_name = 'PK_CKTS_CX_GYXX'
+order by position
+
+
+
+select * from sys.all_tab_privs
+where table_schema = 'DZDZ'
+and table_name = 'CKTS_CX_GYXX'
+order by grantee
+
+
+select "CX_BH", "CX_BM", "CX_ZWM", "MXLJ", "WY_BZ", "CX_SM", "CXDC_BZ" from CKTS_CX_GYXX
+
+select "CX_BH", "ZD_MC", "ZD_ZWMC", "ZDSJ_LX", "DM_MC", "JSDML", "TJ_BZ", "MR_TJ", "BX_TJ", to_char("TJ_XH"), to_char("CX_XH"), to_char("SRZD_CD"), "FKTJ_BZ", "TJMRZ", "GLTJ_ZD", "ZDJSHQL", "JG_BZ", "MR_JG", "BX_JG", to_char("JG_XH"), "MXLJ", "GLJG_ZD", "ZDXSKD", "DQ_FS", "YCZD_BZ", "PX_BZ", "MR_PX", "BX_PX", "PX_FS", to_char("PX_XH"), "YX_BZ" from CKTS_CX_XXXX
+
